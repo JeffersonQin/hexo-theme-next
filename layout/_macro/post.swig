@@ -211,9 +211,20 @@
     {### END POST BODY ###}
     {#####################}
 
+    <div>
+        {% if not is_index %}
+            <div style="text-align:center;color: #ccc;font-size:14px;">__EOF__</div>
+            <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+        {% endif %}
+    </div>
+
     {%- if theme.related_posts.enable and (theme.related_posts.display_in_home or not is_index) %}
       {{ partial('_partials/post/post-related.swig') }}
     {%- endif %}
+
+    {% if not is_index %}
+      {% include 'my-copyright.swig' %}
+    {% endif %}
 
     {%- if not is_index %}
       {{- next_inject('postBodyEnd') }}
@@ -253,6 +264,55 @@
         <div class="post-eof"></div>
       </footer>
     {%- endif %}
+
+    {% if not is_index %}
+        <div id="comple-dark-button-wrap" style="z-index: 100000; position: fixed; right: 20px; bottom: 20px;">
+            <style>
+                .control-mask-button {
+                    display: block;
+                    width: 42px;
+                    height: 42px;
+                    line-height: 42px;
+                    color: #ff8572;
+                    background: #ffd9d3;
+                    box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
+                    width: 2.5em;
+                    height: 2.5em;
+                    line-height: 2.5em;
+                    border-radius: 50%;
+                    -webkit-transform: translateZ(0);
+                    transform: translateZ(0);
+                    overflow: hidden;
+                    position: relative;
+                    cursor: pointer;
+                    display: inline-block;
+                    -webkit-user-select: none;
+                    -moz-user-select: none;
+                    -ms-user-select: none;
+                    user-select: none;
+                    -webkit-tap-highlight-color: transparent;
+                }
+                .control-mask-button:hover {
+                    color: #FFBDFF;
+                    transition-duration: 0.5s;
+                }
+            </style>
+            <a href="javascript:;" id="jeffMaskControl" class="control-mask-button"></a>
+            <script>
+                var click_time = 0;
+                
+                document.querySelector('a[id="jeffMaskControl"]').addEventListener('click', function(){
+                    click_time += 1;
+                    var content_wrap = document.getElementsByClassName('content-wrap')[0];
+                    if (click_time % 2 == 1) {
+                        content_wrap.style.cssText += 'background: rgba(175,210,237,1);';
+                    } else {
+                        content_wrap.style.cssText += 'background: rgba(175,210,237,0);';
+                    }
+                })
+            </script>
+        </div>
+    {% endif %}
   </article>
   {######################}
   {### END POST BLOCK ###}

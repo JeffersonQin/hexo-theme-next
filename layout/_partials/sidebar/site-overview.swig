@@ -17,6 +17,15 @@
         {% else %}
           <a href="{{ url_for(config.archive_dir) }}">
         {%- endif %}
+
+        {%- set posts_length = site.posts.length %}
+
+        {%- for post in site.posts.toArray() %}
+            {%- if post.notshow == true %}
+                {%- set posts_length = posts_length - 1 %}
+            {%- endif %}
+        {%- endfor %}
+        
           <span class="site-state-item-count">{{ site.posts.length }}</span>
           <span class="site-state-item-name">{{ __('state.posts') }}</span>
         </a>

@@ -15,6 +15,13 @@
     <div class="posts-collapse">
       <div class="collection-title">
         {%- set posts_length = site.posts.length %}
+        
+        {%- for post in site.posts.toArray() %}
+            {%- if post.notshow == true %}
+                {%- set posts_length = posts_length - 1 %}
+            {%- endif %}
+        {%- endfor %}
+
         {%- if posts_length > 210 %}
           {%- set cheers = 'excellent' %}
         {% elif posts_length > 130 %}
@@ -28,7 +35,7 @@
         {% else %}
           {%- set cheers = 'um' %}
         {%- endif %}
-        <span class="collection-header">{{ __('cheers.' + cheers) }}! {{ _p('counter.archive_posts', site.posts.length) }} {{ __('keep_on') }}</span>
+        <span class="collection-header">{{ __('cheers.' + cheers) }}! {{ _p('counter.archive_posts', posts_length) }} {{ __('keep_on') }}</span>
       </div>
 
       {{ post_template.render(page.posts) }}
