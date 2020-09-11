@@ -493,7 +493,7 @@ yandex_site_verification:
 baidu_site_verification:
 
 # Enable baidu push so that the blog will push the url to baidu automatically which is very helpful for SEO.
-baidu_push: false
+baidu_push: true
 
 
 # ---------------------------------------------------------------
@@ -625,9 +625,11 @@ changyan:
 # Valine
 # For more information: https://valine.js.org, https://github.com/xCss/Valine
 valine:
-  enable: true
-  appid: xsPOyPe0OqD5qQNhU8zV4LJg-gzGzoHsz # Your leancloud application appid
-  appkey: XPsvRKcStjoksikeRS8ms22q # Your leancloud application appkey
+  enable: false
+  #appid: xsPOyPe0OqD5qQNhU8zV4LJg-gzGzoHsz # Your leancloud application appid
+  appid: QsePUrsgRTvQRUJ81ReB9UkS-MdYXbMMI
+  #appkey: XPsvRKcStjoksikeRS8ms22q # Your leancloud application appkey
+  appkey: f4llKstf2DhuEblaq257NdpX
   notify: false # Mail notifier
   verify: false # Verification code
   placeholder: ヾﾉ≧∀≦)o 来呀！快活呀！~ # Comment box placeholder
@@ -648,17 +650,17 @@ livere_uid: # <your_uid>
 # Gitalk
 # For more information: https://gitalk.github.io, https://github.com/gitalk/gitalk
 gitalk:
-  enable: false
-  github_id: # GitHub repo owner
-  repo: # Repository name to store issues
-  client_id: # GitHub Application Client ID
-  client_secret: # GitHub Application Client Secret
-  admin_user: # GitHub repo owner and collaborators, only these guys can initialize gitHub issues
+  enable: true
+  github_id: JeffersonQin # GitHub repo owner
+  repo: JeffersonQin.github.io # Repository name to store issues
+  client_id: 3c0f684255e61ed2d6c9 # GitHub Application Client ID
+  client_secret: 8801b330ab4d8223cf3f3f65997c146538724a55 # GitHub Application Client Secret
+  admin_user: JeffersonQin # GitHub repo owner and collaborators, only these guys can initialize gitHub issues
   distraction_free_mode: true # Facebook-like distraction free mode
   # Gitalk's display language depends on user's browser or system environment
   # If you want everyone visiting your site to see a uniform language, you can set a force language value
   # Available values: en | es-ES | fr | ru | zh-CN | zh-TW
-  language:
+  language: zh-CN
 
 
 # ---------------------------------------------------------------
@@ -705,8 +707,8 @@ cnzz_siteid:
 # Do not enable both `valine.visitor` and `leancloud_visitors`.
 leancloud_visitors:
   enable: false
-  app_id: # <your app id>
-  app_key: # <your app key>
+  app_id: 
+  app_key: 
   # Required for apps from CN region
   server_url: # <your server url>
   # Dependencies: https://github.com/theme-next/hexo-leancloud-counter-security
@@ -803,7 +805,7 @@ note:
   #  - modern    bs-callout new (v2-v3) alert style.
   #  - flat      flat callout style with background, like on Mozilla or StackOverflow.
   #  - disabled  disable all CSS styles import of note tag.
-  style: simple
+  style: modern
   icons: true
   # Offset lighter of background in % for modern and flat styles (modern: -12 | 12; flat: -18 | 6).
   # Offset also applied to label tag variables. This option can work with disabled note tag.
