@@ -154,6 +154,16 @@
             </span>
           {%- endif %}
 
+          {% if post.cnblogs %}
+            <br>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fas fa-rss"></i>
+              </span>
+              <span class="post-meta-item-text" id="cnblogs_sync_text"><a href="https://www.cnblogs.com/jeffersonqin/">博客园</a> 同步已开启</span>
+            </span>
+          {% endif %}
+
           {%- if post.description and (not theme.excerpt_description or not is_index) %}
             <div class="post-description">{{ post.description }}</div>
           {%- endif %}
